@@ -1,0 +1,260 @@
+/* ==========================
+   ESTILO GERAL
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ==========================
+   CABEÇALHO E MENU
+========================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #004aad;
+  color: white;
+  padding: 15px 25px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #00c3ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  transition: 0.3s;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #00c3ff;
+}
+
+.hamburguer {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ==========================
+   HERO / INÍCIO
+========================== */
+.hero {
+  background: linear-gradient(to right, #004aad, #00c3ff);
+  color: white;
+  text-align: center;
+  padding: 100px 25px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background: white;
+  color: #004aad;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #f2f2f2;
+}
+
+/* ==========================
+   CURSOS
+========================== */
+.cursos {
+  padding: 70px 25px;
+  text-align: center;
+}
+
+.cursos h2 {
+  color: #004aad;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* ==========================
+   COMUNIDADE
+========================== */
+.comunidade {
+  background: #004aad;
+  color: white;
+  text-align: center;
+  padding: 80px 25px;
+}
+
+.comunidade .btn {
+  background: white;
+  color: #004aad;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.eventos {
+  padding: 60px 25px;
+  text-align: center;
+}
+
+.eventos ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.eventos li {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px auto;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ==========================
+   CONTATO
+========================== */
+.contato {
+  padding: 70px 25px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+}
+
+button {
+  background: #004aad;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #00c3ff;
+}
+
+/* ==========================
+   RODAPÉ
+========================== */
+footer {
+  background: #002f6c;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+@media (max-width: 720px) {
+  .hamburguer {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #004aad;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+    border-radius: 0 0 0 15px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+  }
+}
