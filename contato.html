@@ -23,18 +23,40 @@
 
   <section class="contato">
     <h2>Fale Conosco</h2>
+  <form 
+  id="contactForm"
+  action="https://formsubmit.co/devwilliam904@gmail.com" 
+  method="POST"
+>
+  <input type="text" name="nome" placeholder="Seu nome" required>
+  <input type="email" name="email" placeholder="Seu e-mail" required>
+  <textarea name="mensagem" placeholder="Sua mensagem..." required></textarea>
+  <button type="submit">Enviar</button>
+
+  <!-- Campos ocultos -->
+  <input type="hidden" name="_captcha" value="false">
+</form>
+
+<script>
+  // Quando o formulário for enviado
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Impede o recarregamento automático da página
     
-    <form action="https://formsubmit.co/devwilliam904@gmail.com" method="POST">
-      <input type="text" name="nome" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu e-mail" required>
-      <textarea name="mensagem" placeholder="Sua mensagem..." required></textarea>
-      <button type="submit">Enviar</button>
+    // Envia os dados ao FormSubmit
+    fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this)
+    }).then(() => {
+      // Mostra uma pequena mensagem e redireciona
+      alert("✅ Mensagem enviada com sucesso!");
+      window.location.href = "https://learnovaangola.netlify.app/"; // Redireciona para a página inicial
+    }).catch(() => {
+      alert("⚠️ Ocorreu um erro ao enviar. Tente novamente mais tarde.");
+    });
+  });
+</script>
 
-      <!-- Campos ocultos -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://learnovaangola.netlify.app/">
 
-    </form>
   </section>
 
   <footer>
