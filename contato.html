@@ -23,13 +23,17 @@
 
   <section class="contato">
     <h2>Fale Conosco</h2>
-    <form id="contactForm">
+    
+    <form action="https://formsubmit.co/devwilliam904@gmail.com" method="POST">
       <input type="text" name="nome" placeholder="Seu nome" required>
       <input type="email" name="email" placeholder="Seu e-mail" required>
       <textarea name="mensagem" placeholder="Sua mensagem..." required></textarea>
       <button type="submit">Enviar</button>
+
+      <!-- Campos ocultos -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://learnovaangola.netlify.app/sucesso.html">
     </form>
-    <p id="formMsg"></p>
   </section>
 
   <footer>
