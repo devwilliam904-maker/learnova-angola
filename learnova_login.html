@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learnova — Entrar / Cadastre-se</title>
+  <link rel="shortcut icon" href="ChatGPT Image 29 de out. de 2025, 18_13_53.png" type="image/x-icon">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto;
+      background:linear-gradient(135deg,#0b61d6 0%,#1877F2 100%);
+      color:#fff;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .card{
+      width:100%;
+      max-width:950px;
+      background:rgba(255,255,255,0.1);
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+      backdrop-filter:blur(10px);
+      display:grid;
+      grid-template-columns:1fr 400px;
+      overflow:hidden;
+    }
+    .hero{
+      background:rgba(255,255,255,0.05);
+      padding:40px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:#fff;
+    }
+    .hero img{
+      width:150px;
+      margin-bottom:12px;
+    }
+    .hero h1{
+      font-size:24px;
+      margin-bottom:10px;
+    }
+    .hero p{
+      font-size:14px;
+      opacity:0.9;
+      max-width:320px;
+    }
+    .forms{
+      background:#fff;
+      color:#0f1724;
+      padding:30px;
+    }
+    label{
+      font-size:13px;
+      font-weight:500;
+      color:#374151;
+    }
+    .input{
+      width:100%;
+      padding:12px;
+      margin-top:6px;
+      border-radius:8px;
+      border:1px solid #d0d7e0;
+      outline:none;
+      transition:0.2s;
+    }
+    .input:focus{
+      border-color:#1877F2;
+      box-shadow:0 0 0 3px rgba(24,119,242,0.15);
+    }
+    .btn{
+      background:#1877F2;
+      color:#fff;
+      border:none;
+      border-radius:8px;
+      padding:12px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .btn:hover{background:#0b61d6;}
+    .btn.ghost{
+      background:transparent;
+      color:#1877F2;
+      border:1px solid #1877F2;
+    }
+    .row{display:flex;gap:10px;margin-top:10px}
+    .divider{height:1px;background:#e5e7eb;margin:20px 0}
+    .register-card{
+      background:#f9fafb;
+      border-radius:8px;
+      padding:16px;
+      border:1px solid #e6e9ee;
+    }
+    .small{font-size:13px;color:#6b7280}
+    .link{color:#1877F2;text-decoration:none;font-weight:600}
+    @media(max-width:900px){
+      .card{grid-template-columns:1fr}
+      .hero{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <aside class="hero">
+      <img src="ChatGPT Image 29 de out. de 2025, 18_13_53.png" alt="Logo Learnova">
+      <h1>Aprenda com mentores, crie rotinas e alcance seus objetivos.</h1>
+      <p>Entre na sua jornada de aprendizagem. Se ainda não tem conta, registre-se gratuitamente.</p>
+    </aside>
+
+    <section class="forms">
+      <div class="signin-wrap">
+        <h2 style="margin-bottom:10px">Entrar</h2>
+        <label for="email">E-mail</label>
+        <input id="email" class="input" type="email" placeholder="seu@email.com">
+
+        <label for="password">Palavra-passe</label>
+        <input id="password" class="input" type="password" placeholder="••••••••">
+
+        <div class="row">
+          <button id="signinBtn" class="btn" style="flex:1">Entrar</button>
+          <button id="toggleRegister" class="btn ghost" style="flex:1">Criar conta</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div id="registerForm" class="register-card" style="display:none">
+          <h3 style="margin-bottom:8px">Crie sua conta</h3>
+          <input id="firstName" class="input" placeholder="Nome">
+          <input id="lastName" class="input" placeholder="Sobrenome" style="margin-top:8px">
+          <input id="regEmail" class="input" placeholder="E-mail" style="margin-top:8px">
+          <input id="regPass" class="input" type="password" placeholder="Palavra-passe" style="margin-top:8px">
+          <input id="age" class="input" type="number" placeholder="Idade" style="margin-top:8px">
+          <button id="registerBtn" class="btn" style="margin-top:10px;width:100%">Registrar</button>
+          <div class="small" style="margin-top:10px">Ao se registrar, concorda com nossos termos e políticas.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const signinBtn = document.getElementById('signinBtn');
+    const toggleRegister = document.getElementById('toggleRegister');
+    const registerForm = document.getElementById('registerForm');
+    const registerBtn = document.getElementById('registerBtn');
+
+    // Mostrar / ocultar o formulário de registro
+    toggleRegister.addEventListener('click', ()=>{
+      registerForm.style.display = registerForm.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Registrar novo usuário
+    registerBtn.addEventListener('click', ()=>{
+      const first = document.getElementById('firstName').value.trim();
+      const last = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const pass = document.getElementById('regPass').value;
+      const age = document.getElementById('age').value;
+
+      if(!first || !last || !email || !pass || !age){
+        alert("Preencha todos os campos.");
+        return;
+      }
+
+      if(pass.length < 6){
+        alert("A palavra-passe deve ter pelo menos 6 caracteres.");
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("learnovaUsers")) || [];
+      if(users.some(u => u.email === email)){
+        alert("Este e-mail já está cadastrado.");
+        return;
+      }
+
+      users.push({first,last,email,pass,age});
+      localStorage.setItem("learnovaUsers", JSON.stringify(users));
+
+      alert("Conta criada com sucesso! Agora pode fazer login.");
+      registerForm.style.display = "none";
+    });
+
+    // Login
+    signinBtn.addEventListener('click', ()=>{
+      const email = document.getElementById('email').value.trim();
+      const pass = document.getElementById('password').value;
+
+      if(!email || !pass){
+        alert("Preencha e-mail e palavra-passe.");
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem("learnovaUsers")) || [];
+      const user = users.find(u => u.email === email && u.pass === pass);
+
+      if(user){
+        localStorage.setItem("learnovaUser", JSON.stringify(user));
+        alert("Login realizado com sucesso! Bem-vindo, " + user.first + "!");
+
+        // Redirecionamento seguro
+        setTimeout(()=>{
+          window.location.href = "./index.html";
+        }, 100); // 0.1s de delay
+      } else {
+        alert("Credenciais incorretas ou conta inexistente.");
+      }
+    });
+  </script>
+</body>
+</html>
